@@ -2,21 +2,39 @@ import React from "react";
 import { render } from "react-dom";
 import { Stage, Layer, Rect } from "react-konva";
 
-const WIDTH = 50;
-const HEIGHT = 50;
 
-const grid = [["blue", "blue"], ["blue", "blue"]];
 
+
+let WIDTH = 1400;
+let HEIGHT = 800;
+
+const grid = [["white", "white"], ["white", "white"]];
+
+console.log(process.env.REACT_APP_X);
 const App = () => {
-  const [stagePos, setStagePos] = React.useState({ x: 0, y: 0 });
-  const startX = Math.floor((-stagePos.x - window.innerWidth) / WIDTH) * WIDTH;
-  const endX =
-    Math.floor((-stagePos.x + window.innerWidth * 2) / WIDTH) * WIDTH;
 
-  const startY =
-    Math.floor((-stagePos.y - window.innerHeight) / HEIGHT) * HEIGHT;
-  const endY =
-    Math.floor((-stagePos.y + window.innerHeight * 2) / HEIGHT) * HEIGHT;
+  
+
+  WIDTH=1400/process.env.REACT_APP_X;
+  HEIGHT=800/process.env.REACT_APP_Y;
+
+  const [stagePos, setStagePos] = React.useState({ x: 0, y: 0 });
+  // const startX = Math.floor((-stagePos.x - window.innerWidth) / WIDTH) * WIDTH;
+  // const endX =
+  //   Math.floor((-stagePos.x + window.innerWidth * 2) / WIDTH) * WIDTH;
+
+  // const startY =
+  //   Math.floor((-stagePos.y - window.innerHeight) / HEIGHT) * HEIGHT;
+  // const endY =
+  //   Math.floor((-stagePos.y + window.innerHeight * 2) / HEIGHT) * HEIGHT;
+
+ 
+
+  const startX = 0;
+  const endX = 1400;
+
+  const startY= 0;
+  const endY = 800;
 
   const gridComponents = [];
   var i = 0;
